@@ -1,5 +1,3 @@
-<p style="text-align:center"><img src="./images/slack.png" style="width:100px;height:auto;"/></p>
-
 # Slack for a-blog cms
 
 a-blog cms の 拡張アプリ「Slack for a-blog cms」を使うとフォームからデータが送信された段階でそのフォームのデータを加工し、slackに通知することができます。例えばフォームから「資料請求」などがあれば「資料請求がありました。」などとslackの好きなチャンネルに通知できます。この拡張アプリはVer.2.8より利用可能です。
