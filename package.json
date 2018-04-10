@@ -1,0 +1,27 @@
+{
+  "name": "acms-slack",
+  "version": "1.0.0",
+  "description": "Slack API と連携し、フォームの送信内容をSlackで通知するための機能を提供します。",
+  "main": "deploy.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node deploy.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/appleple/acms-slack.git"
+  },
+  "author": "appleple",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/appleple/acms-slack/issues"
+  },
+  "homepage": "https://github.com/appleple/acms-slack#readme",
+  "devDependencies": {
+    "archiver": "^2.1.1",
+    "co": "^4.6.0",
+    "fs-extra": "^2.1.2",
+    "node-cmd": "^3.0.0"
+  },
+  "dependencies": {}
+}
