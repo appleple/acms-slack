@@ -1,1 +1,2 @@
-# Slack for a-blog cms
+# Slack App for a-blog cms
+
