@@ -1,0 +1,69 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "3d0552ab470fe4bf7f0ba3f04df9bf39",
+    "packages": [
+        {
+            "name": "lygav/php-slackbot",
+            "version": "0.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/lygav/php-slackbot.git",
+                "reference": "c3266ebf1f4a30a853e2b86a7ef8bdd188da76cb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/lygav/php-slackbot/zipball/c3266ebf1f4a30a853e2b86a7ef8bdd188da76cb",
+                "reference": "c3266ebf1f4a30a853e2b86a7ef8bdd188da76cb",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "3.7.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "lygav\\slackbot\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Vladimir (Vladi) Lyga",
+                    "email": "lyvladi@gmail.com",
+                    "homepage": "https://github.com/lygav"
+                }
+            ],
+            "description": "Simple, easy to use, PHP package for sending messages to Slack. Send pretty, colourful messages with rich attachments quickly with this friendly API",
+            "homepage": "https://github.com/lygav/php-slackbot",
+            "keywords": [
+                "php-slackbot",
+                "slack",
+                "slackbot"
+            ],
+            "time": "2016-12-01T13:50:25+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": {
+        "php": ">=5.3.3"
+    },
+    "platform-dev": [],
+    "platform-overrides": {
+        "php": "5.3.3"
+    }
+}
