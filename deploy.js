@@ -54,6 +54,7 @@ const zipPromise = (src, dist) => {
 co(function* () {
   try {
     fs.mkdirsSync(`Slack`);
+    fs.mkdirsSync(`build`);
     fs.copySync(`./composer.json`, 'Slack/composer.json');
     fs.copySync(`./composer.lock`, `Slack/composer.lock`);
     fs.copySync(`./LICENSE`, `Slack/LICENSE`);
@@ -62,7 +63,7 @@ co(function* () {
     fs.copySync(`./Hook.php`, `Slack/Hook.php`);
     fs.copySync(`./ServiceProvider.php`, `Slack/ServiceProvider.php`);
     yield systemCmd(`cd ./Slack; composer install`);
-    yield zipPromise(`Slack`, `./slack.zip`);
+    yield zipPromise(`Slack`, `./build/slack.zip`);
     fs.removeSync(`Slack`);
     yield systemCmd('git add -A');
     yield systemCmd(`git commit -m "v${pkg.version}"`);
