@@ -9,7 +9,7 @@ const archiver = require('archiver');
  * @param cmdString
  * @returns {Promise}
  */
-exports.systemCmd = cmdString => {
+const systemCmd = cmdString => {
   return new Promise((resolve) => {
     cmd.get(
       cmdString,
@@ -52,16 +52,17 @@ const zipPromise = (src, dist) => {
 
 co(function* () {
   try {
-    fs.mkdirsSync(`_tmp`);
-    fs.copySync(`./composer.json`, '_tmp/composer.json');
-    fs.copySync(`./composer.lock`, `_tmp/composer.lock`);
-    fs.copySync(`./LICENSE`, `_tmp/LICENSE`);
-    fs.copySync(`./README.md`, `_tmp/README.md`);
-    fs.copySync(`./Engine.php`, `_tmp/Engine.php`);
-    fs.copySync(`./Hook.php`, `_tmp/Hook.php`);
-    fs.copySync(`./ServiceProvider.php`, `_tmp/ServiceProvider.php`);
-    zipPromise(`_tmp`, `./slack.zip`);
-    fs.removeSync(`_tmp`);
+    fs.mkdirsSync(`Slack`);
+    fs.copySync(`./composer.json`, 'Slack/composer.json');
+    fs.copySync(`./composer.lock`, `Slack/composer.lock`);
+    fs.copySync(`./LICENSE`, `Slack/LICENSE`);
+    fs.copySync(`./README.md`, `Slack/README.md`);
+    fs.copySync(`./Engine.php`, `Slack/Engine.php`);
+    fs.copySync(`./Hook.php`, `Slack/Hook.php`);
+    fs.copySync(`./ServiceProvider.php`, `Slack/ServiceProvider.php`);
+    yield systemCmd(`cd ./Slack; composer install`);
+    yield zipPromise(`Slack`, `./slack.zip`);
+    fs.removeSync(`Slack`);
   } catch (err) {
     console.log(err);
   }
