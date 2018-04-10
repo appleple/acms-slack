@@ -50,7 +50,7 @@ class ServiceProvider extends ACMS_APP
         $hook->attach('SlackHook', new Hook);
 
         $inect = InjectTemplate::singleton();
-        $inect->add('admin-form', '/admin/app/slack/form.html');
+        $inect->add('admin-form', '/extension/plugins/Slack/theme/admin/app/slack/form.html');
     }
 
     /**
@@ -102,18 +102,6 @@ class ServiceProvider extends ACMS_APP
      */
     public function activate()
     {
-        $theme = config('theme');
-        $list = array(
-            '/admin/app/slack/form.html'
-        );
-        foreach ($list as $path) {
-            $to = THEMES_DIR . $theme . $path;
-            $from = PLUGIN_LIB_DIR . 'Slack/theme' . $path;
-            Storage::makeDirectory(dirname(THEMES_DIR . $theme . $path));
-            if ( !Storage::exists($to) ) {
-                Storage::copy($from, $to);
-            }
-        }
         return true;
     }
 
