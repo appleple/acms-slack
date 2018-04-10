@@ -2,6 +2,7 @@ const cmd = require('node-cmd');
 const fs = require('fs-extra');
 const co = require('co');
 const archiver = require('archiver');
+const pkg = fs.readJsonSync('./package.json');
 
 /**
  * Run system command
@@ -63,6 +64,10 @@ co(function* () {
     yield systemCmd(`cd ./Slack; composer install`);
     yield zipPromise(`Slack`, `./slack.zip`);
     fs.removeSync(`Slack`);
+    yield systemCmd('git add -A');
+    yield systemCmd(`git commit -m "v${pkg.version}"`);
+    yield systemCmd(`git tag v${pkg.version}`);
+    yield systemCmd('git push');
   } catch (err) {
     console.log(err);
   }
