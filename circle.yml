@@ -17,6 +17,6 @@ dependencies:
 deployment:
   production:
     branch:
-      - /master
+      - master
     commands:
       - npm run deploy
