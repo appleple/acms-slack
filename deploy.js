@@ -67,7 +67,6 @@ co(function* () {
     fs.removeSync(`Slack`);
     yield systemCmd('git add -A');
     yield systemCmd(`git commit -m "v${pkg.version}"`);
-    yield systemCmd(`git tag v${pkg.version}`);
     yield systemCmd('git push');
   } catch (err) {
     console.log(err);

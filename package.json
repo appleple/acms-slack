@@ -1,11 +1,14 @@
 {
   "name": "acms-slack",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Slack API と連携し、フォームの送信内容をSlackで通知するための機能を提供します。",
   "main": "deploy.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 0",
-    "deploy": "node deploy.js"
+    "deploy": "node deploy.js",
+    "patch": "npm version patch && npm run deploy",
+    "minor": "npm version minor && npm run deploy",
+    "major": "npm version major && npm run deploy"
   },
   "repository": {
     "type": "git",
