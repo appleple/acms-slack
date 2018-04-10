@@ -4,7 +4,7 @@ a-blog cms の 拡張アプリ「Slack for a-blog cms」を使うとフォーム
 利用するためにはダウンロード後、/extension/pluginsに設置してください。
 
 ## ダウンロード
-[Slack for a-blog cms](https://github.com/appleple/acms-slack/raw/master/slack.zip)
+[Slack for a-blog cms](https://github.com/appleple/acms-slack/raw/master/build/slack.zip)
 
 ## 使い方
 下の図のように、Slackに通知したいFormIDを指定し、メッセージの送信先チャネルを「Channel」に送信元の名前を「From」に設定します。またメッセージにはFormモジュールの変数と、グローバル変数を使用することができます。
