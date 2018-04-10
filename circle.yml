@@ -14,6 +14,10 @@ dependencies:
   override:
     - npm install
 
+test:
+  override:
+    - "true"
+
 deployment:
   production:
     commands:

@@ -4,7 +4,6 @@
   "description": "Slack API と連携し、フォームの送信内容をSlackで通知するための機能を提供します。",
   "main": "deploy.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "deploy": "node deploy.js"
   },
   "repository": {
