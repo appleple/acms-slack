@@ -3,11 +3,10 @@
 namespace Acms\Plugins\Slack;
 
 use ACMS_App;
-use Acms\Services\Facades\Storage;
 use Acms\Services\Common\HookFactory;
 use Acms\Services\Common\InjectTemplate;
 
-class ServiceProvider extends ACMS_APP
+class ServiceProvider extends ACMS_App
 {
     /**
      * @var string
