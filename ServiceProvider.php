@@ -17,7 +17,7 @@ class ServiceProvider extends ACMS_APP
     /**
      * @var string
      */
-    public $name = 'Slack';
+    public $name = 'Slack for a-blog cms';
 
     /**
      * @var string
