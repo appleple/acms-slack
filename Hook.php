@@ -13,8 +13,11 @@ class Hook
     public function afterPostFire($thisModule)
     {
         $moduleName = get_class($thisModule);
-        
-        if ( $moduleName !== 'ACMS_POST_Form_Submit' ) {
+
+        if ($moduleName !== 'ACMS_POST_Form_Submit') {
+            return;
+        }
+        if (!$thisModule->Post->isValidAll()) {
             return;
         }
         $formCode = $thisModule->Post->get('id');
