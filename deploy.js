@@ -62,7 +62,7 @@ co(function* () {
     fs.copySync(`./Engine.php`, `Slack/Engine.php`);
     fs.copySync(`./Hook.php`, `Slack/Hook.php`);
     fs.copySync(`./ServiceProvider.php`, `Slack/ServiceProvider.php`);
-    fs.copySync(`./theme/admin/app/slack/form.html`, `Slack/theme/admin/app/slack/form.html`);
+    fs.copySync(`./template/config.html`, `Slack/template/config.html`);
     yield systemCmd(`cd ./Slack; composer install`);
     yield zipPromise(`Slack`, `./build/slack.zip`);
     fs.removeSync(`Slack`);
