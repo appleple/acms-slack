@@ -2,6 +2,8 @@
 
 namespace Acms\Plugins\Slack;
 
+use ACMS_POST_Form_Submit;
+
 class Hook
 {
     /**
@@ -12,12 +14,18 @@ class Hook
      */
     public function afterPostFire($thisModule)
     {
-        $moduleName = get_class($thisModule);
-
-        if ($moduleName !== 'ACMS_POST_Form_Submit') {
+        if (!($thisModule instanceof ACMS_POST_Form_Submit)) {
             return;
         }
         if (!$thisModule->Post->isValidAll()) {
+            return;
+        }
+        $step = $thisModule->Post->get('error');
+        if (empty($step)) {
+            $step = $thisModule->Get->get('step');
+        }
+        $step = $thisModule->Post->get('step', $step);
+        if (in_array($step, ['forbidden', 'repeated'])) {
             return;
         }
         $formCode = $thisModule->Post->get('id');
