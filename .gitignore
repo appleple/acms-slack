@@ -1,8 +1,26 @@
-composer.phar
-/vendor/
-/node_modules/
+## Editor
+.idea
+.vscode
+
+## MacOS
 .DS_Store
 
-# Commit your application's lock file http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file
-# You may choose to ignore a library lock file http://getcomposer.org/doc/02-libraries.md#lock-file
-# composer.lock
+# Windows
+Thumbs.db
+
+## Logs
+/logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Node
+node_modules/
+
+# PHP
+vendor
+.phplint-cache
+
+## app
+/slack
