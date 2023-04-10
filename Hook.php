@@ -25,12 +25,12 @@ class Hook
             $step = $thisModule->Get->get('step');
         }
         $step = $thisModule->Post->get('step', $step);
-        if (in_array($step, ['forbidden', 'repeated'])) {
+        if (in_array($step, array('forbidden', 'repeated'))) {
             return;
         }
         $formCode = $thisModule->Post->get('id');
         try {
-            $engine = new Engine($formCode);
+            $engine = new Engine($formCode, $thisModule);
             $engine->send();
         } catch (\Exception $e) {
             userErrorLog('ACMS Warning: Slack plugin, ' . $e->getMessage());
