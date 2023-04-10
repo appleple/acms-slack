@@ -49,7 +49,7 @@ class ServiceProvider extends ACMS_App
         $hook->attach('SlackHook', new Hook);
 
         $inect = InjectTemplate::singleton();
-        $inect->add('admin-form', PLUGIN_DIR . 'Slack/template/config.html');
+        $inect->add('admin-form', PLUGIN_DIR . 'Slack/template/admin/form.html');
     }
 
     /**
