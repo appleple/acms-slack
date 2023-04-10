@@ -36,14 +36,14 @@ co(function* () {
      * ready plugins files
      */
     const copyFiles = fs.readdirSync('.');
-    fs.mkdirsSync('GoogleSheets');
+    fs.mkdirsSync('slack');
     fs.mkdirsSync(`build/v${version}`);
 
     /**
      * copy plugins files
      */
     copyFiles.forEach((file) => {
-      fs.copySync(`./${file}`, `GoogleSheets/${file}`);
+      fs.copySync(`./${file}`, `slack/${file}`);
     });
 
     /**
@@ -52,14 +52,14 @@ co(function* () {
     console.log('Remove unused files.');
     console.log(ignores);
     ignores.forEach((path) => {
-      fs.removeSync(`GoogleSheets/${path}`);
+      fs.removeSync(`slack/${path}`);
     });
 
-    yield zipPromise('GoogleSheets', `./build/v${version}/GoogleSheets.zip`);
-    fs.copySync(`./build/v${version}/GoogleSheets.zip`, './build/GoogleSheets.zip');
+    yield zipPromise('slack', `./build/v${version}/slack.zip`);
+    fs.copySync(`./build/v${version}/slack.zip`, './build/slack.zip');
   } catch (err) {
     console.log(err);
   } finally {
-    fs.removeSync('GoogleSheets');
+    fs.removeSync('slack');
   }
 });

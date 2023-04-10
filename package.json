@@ -5,6 +5,8 @@
   "main": "deploy.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 0",
+    "package": "npm run setup && npm run build:app",
+    "build:app": "node ./tools/build.js",
     "setup": "node ./tools/setup.js",
     "version:sync": "node ./tools/version.js",
     "release:commit": "node ./tools/commit.js",
