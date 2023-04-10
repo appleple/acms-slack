@@ -10,9 +10,9 @@
     "setup": "node ./tools/setup.js",
     "version:sync": "node ./tools/version.js",
     "release:commit": "node ./tools/commit.js",
-    "release:patch": "npm version patch --no-git-tag-version && npm run version:sync && npm run release:commit",
-    "release:minor": "npm version minor --no-git-tag-version && npm run version:sync && npm run release:commit",
-    "release:major": "npm version mejor --no-git-tag-version && npm run version:sync && npm run release:commit"
+    "release:patch": "npm version patch --no-git-tag-version && npm run version:sync && npm run package && npm run release:commit",
+    "release:minor": "npm version minor --no-git-tag-version && npm run version:sync && npm run package && npm run release:commit",
+    "release:major": "npm version mejor --no-git-tag-version && npm run version:sync && npm run package && npm run release:commit"
   },
   "repository": {
     "type": "git",
