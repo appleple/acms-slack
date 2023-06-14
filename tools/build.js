@@ -36,14 +36,14 @@ co(function* () {
      * ready plugins files
      */
     const copyFiles = fs.readdirSync('.');
-    fs.mkdirsSync('slack');
+    fs.mkdirsSync('Slack');
     fs.mkdirsSync(`build/v${version}`);
 
     /**
      * copy plugins files
      */
     copyFiles.forEach((file) => {
-      fs.copySync(`./${file}`, `slack/${file}`);
+      fs.copySync(`./${file}`, `Slack/${file}`);
     });
 
     /**
@@ -52,14 +52,14 @@ co(function* () {
     console.log('Remove unused files.');
     console.log(ignores);
     ignores.forEach((path) => {
-      fs.removeSync(`slack/${path}`);
+      fs.removeSync(`Slack/${path}`);
     });
 
-    yield zipPromise('slack', `./build/v${version}/slack.zip`);
-    fs.copySync(`./build/v${version}/slack.zip`, './build/slack.zip');
+    yield zipPromise('Slack', `./build/v${version}/Slack.zip`);
+    fs.copySync(`./build/v${version}/Slack.zip`, './build/Slack.zip');
   } catch (err) {
     console.log(err);
   } finally {
-    fs.removeSync('slack');
+    fs.removeSync('Slack');
   }
 });
