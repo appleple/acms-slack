@@ -3,15 +3,15 @@
 namespace Acms\Plugins\Slack;
 
 use Field;
-use Field_Validation;
+use Common;
 use lygav\slackbot\SlackBot;
 
 class Engine
 {
     /**
-     * @var \Field
+     * @var \ACMS_POST
      */
-    protected $formField;
+    protected $module;
 
     /**
      * @var \Field
@@ -42,12 +42,11 @@ class Engine
             throw new \RuntimeException('Empty hook url.');
         }
         $bot = new Slackbot($this->config->get('slack_incoming_hook_url'));
-        $message = $this->config->get('slack_form_message');
+        $messageTpl = $this->config->get('slack_form_message');
         $channel = $this->config->get('slack_form_channel');
         $from = $this->config->get('slack_form_from');
 
-        $tpl = '<!-- BEGIN_MODULE Form --><!-- BEGIN step#result -->'.$message.'<!-- END step#result --><!-- END_MODULE Form -->';
-        $text = build(setGlobalVars($tpl), Field_Validation::singleton('post'));
+        $text = Common::getMailTxtFromTxt($messageTpl, $this->module->Post->getChild('field'));;
         $slack = $bot->text($text);
         if ($channel) {
             $slack->toChannel($channel);
