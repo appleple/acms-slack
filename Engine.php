@@ -30,6 +30,7 @@ class Engine
             throw new \RuntimeException('Not Found Form.');
         }
         $this->config = $info['data']->getChild('mail');
+        $this->module = $module;
     }
 
     /**
