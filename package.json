@@ -1,6 +1,6 @@
 {
   "name": "acms-slack",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "Slack API と連携し、フォームの送信内容をSlackで通知するための機能を提供します。",
   "main": "deploy.js",
   "scripts": {
