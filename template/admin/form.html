@@ -2,6 +2,24 @@
 <table class="acms-admin-table-admin-edit">
   <tr>
     <th>
+      Slack連携<i
+        class="acms-admin-icon-tooltip js-acms-tooltip js-acms-tooltip-hover"
+        data-acms-tooltip="チェックをすると、Slackの連携が有効になります。"
+      ></i>
+    </th>
+    <td>
+      <div class="acms-admin-form-checkbox">
+        <input type="hidden" name="slack_void" value="off">
+        <input type="checkbox" name="slack_void" value="on"{slack_void:checked#on} id="slack_void">
+        <label for="slack_void">
+          <i class="acms-admin-ico-checkbox"></i>有効
+        </label>
+      </div>
+      <input type="hidden" name="mail[]" value="slack_void">
+    </td>
+  </tr>
+  <tr>
+    <th>
       Incoming Hook URL
       <i
         class="acms-admin-icon-tooltip js-acms-tooltip-hover"
