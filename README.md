@@ -3,7 +3,8 @@
 a-blog cms の 拡張アプリ「Slack for a-blog cms」を使うとフォームからデータが送信された段階でそのフォームのデータを加工し、slackに通知することができます。例えばフォームから「資料請求」などがあれば「資料請求がありました。」などとslackの好きなチャンネルに通知できます。
 
 ## 動作環境
-- a-blog cms: >= Ver. 2.9.0
+- a-blog cms: Ver. 2.9.0 – 3.2.x (3.3+ not tested yet)
+- PHP: 5.3.29 – 8.5 (8.6+ not tested yet)
 
 ## ダウンロード
 [Slack for a-blog cms](https://github.com/appleple/acms-slack/releases/latest/download/Slack.zip)
