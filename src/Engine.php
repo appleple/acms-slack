@@ -47,7 +47,8 @@ class Engine
         $channel = $this->config->get('slack_form_channel');
         $from = $this->config->get('slack_form_from');
 
-        $text = Common::getMailTxtFromTxt($messageTpl, $this->module->Post->getChild('field'));;
+        $text = Common::getMailTxtFromTxt($messageTpl, $this->module->Post->getChild('field'));
+        ;
         $slack = $bot->text($text);
         if ($channel) {
             $slack->toChannel($channel);

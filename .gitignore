@@ -24,3 +24,5 @@ vendor
 
 ## app
 /slack
+
+/build/

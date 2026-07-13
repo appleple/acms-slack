@@ -1,0 +1,11 @@
+{
+    "require": {
+        "php": ">=5.3.3",
+        "lygav/php-slackbot": "0.0.*"
+    },
+    "config": {
+        "platform": {
+            "php": "5.3.3"
+        }
+    }
+}

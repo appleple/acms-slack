@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<!-- Coding standard for the plugin. Modeled on a-blog cms core's phpcs.xml.dist. -->
+<ruleset name="acms-plugin-skeleton">
+    <rule ref="PSR12">
+        <exclude name="PSR1.Methods.CamelCapsMethodName.NotCamelCaps"/>
+        <exclude name="PSR1.Classes.ClassDeclaration.MissingNamespace"/>
+        <exclude name="Generic.Files.LineLength.TooLong"/>
+        <exclude name="Squiz.Classes.ValidClassName.NotCamelCaps"/>
+        <exclude name="PSR2.Classes.PropertyDeclaration.Underscore"/>
+        <exclude name="Squiz.Scope.MethodScope.Missing"/>
+        <exclude name="PSR2.Methods.MethodDeclaration.Underscore"/>
+        <exclude name="PSR1.Classes.ClassDeclaration.MultipleClasses"/>
+    </rule>
+    <!-- Enforce array indentation -->
+    <rule ref="Generic.Arrays.ArrayIndent"/>
+    <!-- Control spacing after the spread operator -->
+    <rule ref="Generic.WhiteSpace.SpreadOperatorSpacingAfter"/>
+    <!-- Detect leftover git merge conflict markers -->
+    <rule ref="Generic.VersionControl.GitMergeConflict"/>
+    <!-- Disallow deprecated functions -->
+    <rule ref="Generic.PHP.DeprecatedFunctions"/>
+    <rule ref="Generic.CodeAnalysis.UnconditionalIfStatement"/>
+
+    <!-- Run against the PHPCompatibility ruleset -->
+    <rule ref="PHPCompatibility">
+        <!--
+            These functions are polyfilled by a-blog cms core (config/polyfill.php) behind a
+            function_exists guard, so they are safe on PHP 8.1-8.4. Exclude just these so the rest
+            of the "new function" detection stays active.
+        -->
+        <exclude name="PHPCompatibility.FunctionUse.NewFunctions.array_allFound"/>
+        <exclude name="PHPCompatibility.FunctionUse.NewFunctions.array_anyFound"/>
+        <exclude name="PHPCompatibility.FunctionUse.NewFunctions.array_findFound"/>
+        <exclude name="PHPCompatibility.FunctionUse.NewFunctions.array_find_keyFound"/>
+        <exclude name="PHPCompatibility.FunctionUse.NewFunctions.json_validateFound"/>
+        <!-- PHP 8.5 __destruct-after-constructor-exit warning; not relevant to 8.1-8.5 targets. -->
+        <exclude name="PHPCompatibility.FunctionDeclarations.RemovedCallingDestructAfterConstructorExit.NeedsInspection"/>
+        <!-- fgetcsv() $escape default change is a PHP 9.0 forward-compat warning; out of range. -->
+        <exclude name="PHPCompatibility.ParameterValues.RemovedProprietaryCSVEscaping.DeprecatedParamNotPassed"/>
+    </rule>
+    <config name="testVersion" value="5.3-8.5"/>
+
+    <!-- Only PHP files -->
+    <arg name="extensions" value="php"/>
+    <!-- Colorize output -->
+    <arg name="colors"/>
+    <!-- p: show progress, s: show the rule on error -->
+    <arg value="ps"/>
+
+    <!-- Files / directories to check -->
+    <file>src</file>
+
+    <!-- Exclude dependencies -->
+    <exclude-pattern>*/vendor/*</exclude-pattern>
+</ruleset>

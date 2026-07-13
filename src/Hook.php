@@ -18,11 +18,11 @@ class Hook
             return;
         }
         $formCode = $thisModule->Post->get('id');
-        if(!$formCode) {
+        if (!$formCode) {
             return;
         }
         $info = $thisModule->loadForm($formCode);
-        if($info['data']->getChild('mail')->get('slack_void') !== 'on') {
+        if ($info['data']->getChild('mail')->get('slack_void') !== 'on') {
             return;
         }
         if (!$thisModule->Post->isValidAll()) {

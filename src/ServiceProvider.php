@@ -46,7 +46,7 @@ class ServiceProvider extends ACMS_App
         require_once dirname(__FILE__) . '/vendor/autoload.php';
 
         $hook = HookFactory::singleton();
-        $hook->attach('SlackHook', new Hook);
+        $hook->attach('SlackHook', new Hook());
 
         $inect = InjectTemplate::singleton();
         $inect->add('admin-form', PLUGIN_DIR . $this->name . '/template/admin/form.html');
@@ -70,7 +70,6 @@ class ServiceProvider extends ACMS_App
      */
     public function install()
     {
-
     }
 
     /**
@@ -81,7 +80,6 @@ class ServiceProvider extends ACMS_App
      */
     public function uninstall()
     {
-
     }
 
     /**

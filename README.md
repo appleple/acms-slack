@@ -6,7 +6,7 @@ a-blog cms の 拡張アプリ「Slack for a-blog cms」を使うとフォーム
 - a-blog cms: >= Ver. 2.9.0
 
 ## ダウンロード
-[Slack for a-blog cms](https://github.com/appleple/acms-slack/raw/master/build/slack.zip)
+[Slack for a-blog cms](https://github.com/appleple/acms-slack/releases/latest/download/Slack.zip)
 
 利用するためにはダウンロード後、/extension/pluginsに設置してください。
 

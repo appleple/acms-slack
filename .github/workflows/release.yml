@@ -1,0 +1,45 @@
+name: Release
+
+# 配布用 zip（scripts/package.php）をビルドし、GitHub Release として公開する。
+# v1.2.3 のようなタグを push すると発火する。
+#
+# プラグインのバージョンは src/ServiceProvider.php の $version が正。タグとこの値を一致させること
+# （下の Verify ステップで不一致なら失敗させ、食い違った zip を公開しないようにしている）。
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.5'
+          extensions: zip
+          tools: composer
+
+      - name: Verify tag matches ServiceProvider $version
+        run: php scripts/package.php --check-version="${GITHUB_REF_NAME#v}"
+
+      - name: Create release package
+        run: php scripts/package.php
+
+      - name: Create GitHub Release
+        run: |
+          gh release create "${GITHUB_REF_NAME}" \
+            --title "${GITHUB_REF_NAME}" \
+            --generate-notes \
+            ./build/*.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
