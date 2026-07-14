@@ -41,7 +41,11 @@ class Hook
             $engine = new Engine($formCode, $thisModule);
             $engine->send();
         } catch (\Exception $e) {
-            userErrorLog('ACMS Warning: Slack plugin, ' . $e->getMessage());
+            if (class_exists('AcmsLogger')) {
+                \AcmsLogger::error('【Slack plugin】Slack への通知に失敗しました', \Common::exceptionArray($e));
+            } else {
+                userErrorLog('ACMS Warning: Slack plugin, ' . $e->getMessage());
+            }
         }
     }
 }
