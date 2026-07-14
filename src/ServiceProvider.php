@@ -11,7 +11,7 @@ class ServiceProvider extends ACMS_App
     /**
      * @var string
      */
-    public $version = '1.0.13';
+    public $version = '1.0.14';
 
     /**
      * @var string
@@ -43,8 +43,6 @@ class ServiceProvider extends ACMS_App
      */
     public function init()
     {
-        require_once dirname(__FILE__) . '/vendor/autoload.php';
-
         $hook = HookFactory::singleton();
         $hook->attach('SlackHook', new Hook());
 

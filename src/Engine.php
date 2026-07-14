@@ -4,7 +4,6 @@ namespace Acms\Plugins\Slack;
 
 use Field;
 use Common;
-use lygav\slackbot\SlackBot;
 
 class Engine
 {
@@ -42,7 +41,7 @@ class Engine
         if (empty($hook_url)) {
             throw new \RuntimeException('Empty hook url.');
         }
-        $bot = new Slackbot($this->config->get('slack_incoming_hook_url'));
+        $bot = new SlackWebhookClient($this->config->get('slack_incoming_hook_url'));
         $messageTpl = $this->config->get('slack_form_message');
         $channel = $this->config->get('slack_form_channel');
         $from = $this->config->get('slack_form_from');
